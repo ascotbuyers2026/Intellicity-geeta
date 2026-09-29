@@ -1,204 +1,936 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ascot Homebuyers - Email</title>
+  <meta charset="UTF-8" />
 
-<style>
-body{
-  font-family:Arial,sans-serif;
-  background:#f4f6f8;
-  margin:0;
-  padding:20px;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-.box{
-  max-width:600px;
-  margin:auto;
-  background:white;
-  padding:22px;
-  border-radius:14px;
-  box-shadow:0 2px 10px rgba(0,0,0,.12);
-}
 
-h2{
-  text-align:center;
-  margin-top:0;
-}
 
-label{
-  font-weight:bold;
-  display:block;
-  margin-top:14px;
-}
+  <title>Ascot Homebuyers - Send Email</title>
 
-input{
-  width:100%;
-  box-sizing:border-box;
-  padding:13px;
-  margin-top:6px;
-  border:1px solid #ccc;
-  border-radius:8px;
-  font-size:16px;
-}
 
-button{
-  width:100%;
-  padding:14px;
-  margin-top:18px;
-  border:0;
-  border-radius:8px;
-  color:white;
-  font-size:17px;
-  font-weight:bold;
-}
 
-.gmail{
-  background:#d93025;
-}
+  <style>
 
-.default{
-  background:#222;
-}
+    * {
 
-.note{
-  text-align:center;
-  font-size:13px;
-  color:#666;
-  margin-top:12px;
-}
-</style>
+      box-sizing: border-box;
+
+    }
+
+
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      background: #f4f6f8;
+
+      margin: 0;
+
+      padding: 20px;
+
+    }
+
+
+
+    .box {
+
+      max-width: 620px;
+
+      margin: auto;
+
+      background: white;
+
+      padding: 24px;
+
+      border-radius: 14px;
+
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+
+    }
+
+
+
+    h2 {
+
+      text-align: center;
+
+      margin-top: 0;
+
+    }
+
+
+
+    label {
+
+      font-weight: bold;
+
+      display: block;
+
+      margin-top: 14px;
+
+    }
+
+
+
+    input {
+
+      width: 100%;
+
+      padding: 13px;
+
+      margin-top: 6px;
+
+      border: 1px solid #ccc;
+
+      border-radius: 8px;
+
+      font-size: 16px;
+
+    }
+
+
+
+    .section-title {
+
+      margin-top: 24px;
+
+      font-weight: bold;
+
+    }
+
+
+
+    .button-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 10px;
+
+      margin-top: 12px;
+
+    }
+
+
+
+    button {
+
+      width: 100%;
+
+      padding: 13px;
+
+      border: 0;
+
+      border-radius: 8px;
+
+      color: white;
+
+      font-size: 15px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+    }
+
+
+
+    button:active {
+
+      transform: scale(0.98);
+
+    }
+
+
+
+    .gmail {
+
+      background: #d93025;
+
+    }
+
+
+
+    .outlook {
+
+      background: #0078d4;
+
+    }
+
+
+
+    .yahoo {
+
+      background: #6001d2;
+
+    }
+
+
+
+    .rediff {
+
+      background: #e31e24;
+
+    }
+
+
+
+    .proton {
+
+      background: #6d4aff;
+
+    }
+
+
+
+    .zoho {
+
+      background: #ea4335;
+
+    }
+
+
+
+    .default {
+
+      background: #222;
+
+    }
+
+
+
+    .copy {
+
+      background: #555;
+
+    }
+
+
+
+    .full {
+
+      grid-column: 1 / -1;
+
+    }
+
+
+
+    .preview {
+
+      margin-top: 10px;
+
+      padding: 12px;
+
+      background: #f7f7f7;
+
+      border: 1px solid #ddd;
+
+      border-radius: 8px;
+
+      white-space: pre-wrap;
+
+      font-size: 13px;
+
+      max-height: 220px;
+
+      overflow: auto;
+
+    }
+
+
+
+    .note {
+
+      text-align: center;
+
+      font-size: 13px;
+
+      color: #666;
+
+      margin-top: 16px;
+
+      line-height: 1.5;
+
+    }
+
+
+
+    .success {
+
+      text-align: center;
+
+      color: green;
+
+      font-size: 13px;
+
+      margin-top: 10px;
+
+      min-height: 18px;
+
+    }
+
+
+
+    @media (max-width: 520px) {
+
+      .button-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+
+      .full {
+
+        grid-column: auto;
+
+      }
+
+    }
+
+  </style>
+
 </head>
+
+
 
 <body>
 
+
+
 <div class="box">
 
-<h2>Ascot Homebuyers</h2>
 
-<label>Name</label>
 
-<input
-  id="name"
-  type="text"
-  placeholder="Enter your name"
->
+  <h2>Ascot Homebuyers</h2>
 
-<label>Unit No.</label>
 
-<input
-  id="unit"
-  type="text"
-  placeholder="Enter your unit number"
->
 
-<button
-  class="gmail"
-  onclick="openGmail()"
->
-Gmail
-</button>
+  <label for="name">Name</label>
 
-<button
-  class="default"
-  onclick="openDefault()"
->
-Default Mail App
-</button>
+  <input
 
-<div class="note">
-Name और Unit No. भरकर ऊपर का mail option चुनें.
+    id="name"
+
+    type="text"
+
+    placeholder="Enter your name"
+
+    autocomplete="name"
+
+  />
+
+
+
+  <label for="unit">Unit No.</label>
+
+  <input
+
+    id="unit"
+
+    type="text"
+
+    placeholder="Enter your unit number"
+
+  />
+
+
+
+  <div class="section-title">Choose your email service</div>
+
+
+
+  <div class="button-grid">
+
+
+
+    <button class="gmail" onclick="openGmail()">
+
+      Gmail
+
+    </button>
+
+
+
+    <button class="outlook" onclick="openOutlook()">
+
+      Outlook / Hotmail
+
+    </button>
+
+
+
+    <button class="yahoo" onclick="openYahoo()">
+
+      Yahoo Mail
+
+    </button>
+
+
+
+    <button class="rediff" onclick="openDefaultMail()">
+
+      Rediffmail
+
+    </button>
+
+
+
+    <button class="proton" onclick="openProton()">
+
+      Proton Mail
+
+    </button>
+
+
+
+    <button class="zoho" onclick="openZoho()">
+
+      Zoho Mail
+
+    </button>
+
+
+
+    <button class="default full" onclick="openDefaultMail()">
+
+      Other / Default Mail App
+
+    </button>
+
+
+
+  </div>
+
+
+
+  <div class="section-title">
+
+    If email does not open
+
+  </div>
+
+
+
+  <div class="button-grid">
+
+
+
+    <button class="copy" onclick="copySubject()">
+
+      Copy Subject
+
+    </button>
+
+
+
+    <button class="copy" onclick="copyBody()">
+
+      Copy Email Content
+
+    </button>
+
+
+
+  </div>
+
+
+
+  <div id="status" class="success"></div>
+
+
+
+  <div class="note">
+
+    Name और Unit No. भरें और अपना email option चुनें.<br>
+
+    Email पहले से भरा हुआ खुलेगा — आपको केवल Send दबाना है.
+
+  </div>
+
+
+
 </div>
 
-</div>
+
 
 <script>
 
-const to =
-"cirpascot@gmail.com,ascotpeople@gmail.com,ar.ascotcirp2025@gmail.com";
+
+
+const recipients = [
+
+  "cirpascot@gmail.com",
+
+  "ascotpeople@gmail.com",
+
+  "ar.ascotcirp2025@gmail.com"
+
+];
+
+
 
 const subject =
-"Serious Concerns Regarding Unauthorised Interference in the CIRP";
+
+  "Serious Concerns Regarding Unauthorised Interference in the CIRP";
 
 
-function getBody(){
+
+
+
+function getUserDetails() {
+
+
 
   const name =
-  document.getElementById("name").value.trim();
+
+    document.getElementById("name").value.trim();
+
+
 
   const unit =
-  document.getElementById("unit").value.trim();
 
-  if(!name || !unit){
+    document.getElementById("unit").value.trim();
+
+
+
+  if (!name || !unit) {
+
+
 
     alert("कृपया Name और Unit No. दोनों भरें");
 
+
+
     return null;
+
   }
+
+
+
+  return { name, unit };
+
+}
+
+
+
+
+
+function buildBody() {
+
+
+
+  const details = getUserDetails();
+
+
+
+  if (!details) return null;
+
+
 
   return `Dear Sir/Madam,
 
+
+
 Why should we, the Buyers, be dragged into Builder-related fights and unnecessary litigation that only causes further delays to our project?
+
+
 
 Let us be realistic that all the Builders are in business to make money through Homebuyers and these Builders are neither sympathetic nor softhearted towards Homebuyers. After losing more than 10 years, we cannot afford further delays or additional financial burden in the CIRP Cost due to IRR and unwanted litigation.
 
+
+
 Our only priorities should be early revival, timely delivery and NO additional cost to Homebuyers.
+
+
 
 Why should Buyers suffer further delays because of the personal preferences or agendas of certain group leaders who want to control the CIRP or bring in their preferred Builders?
 
+
+
 We must remain united and stop unnecessary litigation. RP replacement and IRR involvement are not required as they only add complexity and delay.
+
+
 
 Let us not allow personal agendas to derail our project. We need revival and not more disputes, litigation and uncertainty.
 
+
+
 Regards
 
-Name: ${name}
-Unit No.: ${unit}`;
+
+
+Name: ${details.name}
+
+Unit No.: ${details.unit}`;
 
 }
 
 
-function openGmail(){
 
-  const body = getBody();
 
-  if(!body) return;
+
+function getMailtoUrl() {
+
+
+
+  const body = buildBody();
+
+
+
+  if (!body) return null;
+
+
+
+  return (
+
+    "mailto:" +
+
+    recipients.join(",") +
+
+    "?subject=" +
+
+    encodeURIComponent(subject) +
+
+    "&body=" +
+
+    encodeURIComponent(body)
+
+  );
+
+}
+
+
+
+
+
+function openGmail() {
+
+
+
+  const body = buildBody();
+
+
+
+  if (!body) return;
+
+
 
   const url =
-  "intent://" +
-  encodeURIComponent(to) +
-  "?subject=" +
-  encodeURIComponent(subject) +
-  "&body=" +
-  encodeURIComponent(body) +
-  "#Intent;scheme=mailto;package=com.google.android.gm;end";
+
+    "https://mail.google.com/mail/?view=cm" +
+
+    "&fs=1" +
+
+    "&to=" + encodeURIComponent(recipients.join(",")) +
+
+    "&su=" + encodeURIComponent(subject) +
+
+    "&body=" + encodeURIComponent(body);
+
+
 
   window.location.href = url;
 
 }
 
 
-function openDefault(){
 
-  const body = getBody();
 
-  if(!body) return;
+
+function openOutlook() {
+
+
+
+  const body = buildBody();
+
+
+
+  if (!body) return;
+
+
 
   const url =
-  "mailto:" +
-  to +
-  "?subject=" +
-  encodeURIComponent(subject) +
-  "&body=" +
-  encodeURIComponent(body);
+
+    "https://outlook.live.com/mail/0/deeplink/compose" +
+
+    "?to=" + encodeURIComponent(recipients.join(";")) +
+
+    "&subject=" + encodeURIComponent(subject) +
+
+    "&body=" + encodeURIComponent(body);
+
+
 
   window.location.href = url;
 
 }
+
+
+
+
+
+function openYahoo() {
+
+
+
+  const body = buildBody();
+
+
+
+  if (!body) return;
+
+
+
+  const url =
+
+    "https://compose.mail.yahoo.com/" +
+
+    "?to=" + encodeURIComponent(recipients.join(",")) +
+
+    "&subject=" + encodeURIComponent(subject) +
+
+    "&body=" + encodeURIComponent(body);
+
+
+
+  window.location.href = url;
+
+}
+
+
+
+
+
+function openProton() {
+
+
+
+  /*
+
+    Proton's web compose/deep-link behaviour can vary.
+
+    mailto: is therefore the safer cross-device approach.
+
+  */
+
+
+
+  openDefaultMail();
+
+}
+
+
+
+
+
+function openZoho() {
+
+
+
+  /*
+
+    Same strategy as Proton/Rediff:
+
+    use the OS/browser's registered email handler.
+
+  */
+
+
+
+  openDefaultMail();
+
+}
+
+
+
+
+
+function openDefaultMail() {
+
+
+
+  const url = getMailtoUrl();
+
+
+
+  if (!url) return;
+
+
+
+  window.location.href = url;
+
+}
+
+
+
+
+
+async function copySubject() {
+
+
+
+  const details = getUserDetails();
+
+
+
+  if (!details) return;
+
+
+
+  await copyText(
+
+    subject,
+
+    "Subject copied"
+
+  );
+
+}
+
+
+
+
+
+async function copyBody() {
+
+
+
+  const body = buildBody();
+
+
+
+  if (!body) return;
+
+
+
+  await copyText(
+
+    body,
+
+    "Email copied"
+
+  );
+
+}
+
+
+
+
+
+async function copyText(text, message) {
+
+
+
+  try {
+
+
+
+    await navigator.clipboard.writeText(text);
+
+
+
+    showStatus(message + " ✓");
+
+
+
+  } catch (error) {
+
+
+
+    fallbackCopy(text);
+
+
+
+    showStatus(message + " ✓");
+
+  }
+
+}
+
+
+
+
+
+function fallbackCopy(text) {
+
+
+
+  const textarea =
+
+    document.createElement("textarea");
+
+
+
+  textarea.value = text;
+
+
+
+  textarea.style.position = "fixed";
+
+  textarea.style.opacity = "0";
+
+
+
+  document.body.appendChild(textarea);
+
+
+
+  textarea.focus();
+
+  textarea.select();
+
+
+
+  document.execCommand("copy");
+
+
+
+  textarea.remove();
+
+}
+
+
+
+
+
+function showStatus(message) {
+
+
+
+  const status =
+
+    document.getElementById("status");
+
+
+
+  status.textContent = message;
+
+
+
+  setTimeout(() => {
+
+    status.textContent = "";
+
+  }, 2500);
+
+}
+
+
 
 </script>
 
+
+
 </body>
+
 </html>
+
