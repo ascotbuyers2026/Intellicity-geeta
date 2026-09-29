@@ -135,15 +135,6 @@ let url =
 window.location.href = url;
 
 }
-function openOutlook(){
-let name=document.getElementById("name").value.trim();
-let unit=document.getElementById("unit").value.trim();
-if(!name || !unit){alert("कृपया Name और Unit No. दोनों भरें");return;}
-let body="Dear Sir/Madam,\n\nName: "+name+"\nUnit No.: "+unit+"\n\nRegards";
-let url="https://outlook.live.com/mail/0/deeplink/compose?to="+encodeURIComponent(to)+"&subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
-window.location.href=url;
-}
-
 function openYahoo(){
 let url="https://mail.yahoo.com/"; name=document.getElementById("name").value.trim();
 let unit=document.getElementById("unit").value.trim();
@@ -153,6 +144,7 @@ let
  subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
 window.location.href=url;
 }
+
 </script>
 
 </body>
