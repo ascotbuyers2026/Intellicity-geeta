@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascot Homebuyers – Email</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 24px;
+}
+
+.card {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 3px 14px rgba(0,0,0,.12);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.field {
+  margin: 14px 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: #1a73e8;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+small {
+  color: #666;
+  display: block;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Ascot Homebuyers – Email</h2>
+
+<p>
+कृपया अपना नाम और Unit No. भरें। इसके बाद Gmail में तैयार मेल खुलेगी।
+</p>
+
+<div class="field">
+<label>Name</label>
+<input id="name" type="text" placeholder="अपना नाम लिखें">
+</div>
+
+<div class="field">
+<label>Unit No.</label>
+<input id="unit" type="text" placeholder="अपना Unit No. लिखें">
+</div>
+
+<button onclick="openGmail()">
+Open Gmail & Compose Email
+</button>
+
+<small>
+Gmail में मेल खुलने के बाद कृपया To, Subject और Body जाँचकर स्वयं Send दबाएँ।
+</small>
+
+</div>
+
+<script>
+
+function openGmail() {
+
+const name = document.getElementById('name').value.trim();
+const unit = document.getElementById('unit').value.trim();
+
+if (!name || !unit) {
+alert('कृपया Name और Unit No. दोनों भरें।');
+return;
+}
+
+const to =
+'cirpascot@gmail.com,ascotpeople@gmail.com,ar.ascotcirp2025@gmail.com';
+
+const subject =
+'Serious Concerns Regarding Unauthorised Interference in the CIRP';
+
+const body = `Dear Sir,
+
+We, the Homebuyers/FCIC members, wish to place on record our strong objection to the involvement of IRR Insolvency in the conduct and management of the CIRP.
+
+It has been brought to our notice that persons associated with IRR Insolvency, including Mr. Rahul Jindal and its advocate Mr. Karan Gandhi, are conducting meetings and actively influencing discussions among Homebuyers/FCIC and CoC members, despite the apparent absence of any statutory authority or locus to administer or conduct the CIRP.
+
+Such conduct, if undertaken without lawful authority, may cause confusion among Homebuyers, interfere with the independent functioning of the CoC and CIRP stakeholders, and potentially prejudice the orderly conduct of the insolvency process. Any attempt to influence or facilitate illegal activities including replacement of the duly appointed AR or RP is a matter requiring serious scrutiny. This conduct of persons involved with IRR shall be considered as contempt of the stay order of Hon’ble NCLAT.
+
+We therefore request you to:
+
+1) Ensure that IRR Insolvency or any unauthorised person does not interfere in or conduct meetings relating to the CIRP, FCIC or CoC.
+
+2) Take appropriate action in accordance with law regarding any unauthorised conduct or interference, and place the matter before the competent authorities, including NCLT/NCLAT/IBBI, wherever warranted.
+
+3) Do not include or pursue any agenda for replacement of RP Mr. Rajiv Bajaj, as we support his continuation as RP and discharge of his statutory duties in accordance with the IBC.
+
+We request that the above concerns be formally taken on record and that the actions proposed/taken by you be communicated to the FCIC/Homebuyers at the earliest.
+
+Regards,
+
+Name: ${name}
+Unit No.: ${unit}`;
+
+const url =
+'https://mail.google.com/mail/?view=cm&fs=1&tf=1'
++ '&to=' + encodeURIComponent(to)
++ '&su=' + encodeURIComponent(subject)
++ '&body=' + encodeURIComponent(body);
+
+window.location.href = url;
+
+}
+
+</script>
+
+</body>
+</html>
