@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -205,16 +204,20 @@
   </div>
 
   <div class="section-title">
-    If the email does not open
+    If the email does not open correctly
   </div>
 
   <div class="button-grid">
+
+    <button class="copy" onclick="copyEmails()">
+      Copy Email IDs
+    </button>
 
     <button class="copy" onclick="copySubject()">
       Copy Subject
     </button>
 
-    <button class="copy" onclick="copyBody()">
+    <button class="copy full" onclick="copyBody()">
       Copy Email
     </button>
 
@@ -223,15 +226,14 @@
   <div id="status" class="status"></div>
 
   <div class="note">
-    Name और Unit No. भरें और अपना email option चुनें.<br><br>
-
-    Email पहले से भरा हुआ खुलेगा — आपको केवल Send दबाना है.<br><br>
-
-    अगर email नहीं खुलता है, तो Copy Subject और Copy Email का उपयोग करें.
+    Name और Unit No. भरें और अपना email option चुनें.
+    <br><br>
+    Email पहले से भरा हुआ खुलेगा — आपको केवल Send दबाना है.
+    <br><br>
+    अगर email सही तरीके से नहीं खुलता है, तो नीचे दिए गए Copy buttons का उपयोग करें.
   </div>
 
 </div>
-
 
 <script>
 
@@ -304,16 +306,6 @@ function buildMailtoUrl() {
     return null;
   }
 
-  /*
-    IMPORTANT:
-
-    Correct:
-    mailto:someone@example.com
-
-    NOT:
-    mailto://someone@example.com
-  */
-
   return (
     "mailto:" +
     recipients.join(",") +
@@ -337,18 +329,18 @@ function openMailApp() {
 }
 
 
+async function copyEmails() {
+
+  const emails = recipients.join(", ");
+
+  await copyText(
+    emails,
+    "Email IDs copied ✓"
+  );
+}
+
+
 async function copySubject() {
-
-  /*
-    Validate name/unit first so the behaviour
-    stays consistent with the email buttons.
-  */
-
-  const details = getUserDetails();
-
-  if (!details) {
-    return;
-  }
 
   await copyText(
     subject,
@@ -376,20 +368,11 @@ async function copyText(text, successMessage) {
 
   try {
 
-    /*
-      Modern browsers.
-      Works when the site is served over HTTPS.
-    */
-
     await navigator.clipboard.writeText(text);
 
     showStatus(successMessage);
 
   } catch (error) {
-
-    /*
-      Fallback for older browsers / some mobile browsers.
-    */
 
     fallbackCopy(text);
 
@@ -436,4 +419,3 @@ function showStatus(message) {
 
 </body>
 </html>
-```
