@@ -3,87 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ascot Homebuyers - Email</title>
 
 <style>
 body{
-font-family:Arial,sans-serif;
-background:#f5f7fb;
-color:#24344d;
-margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f6f8;
+  margin:0;
+  padding:20px;
 }
-.container{
-max-width:650px;
-margin:25px auto;
-padding:20px;
+
+.box{
+  max-width:600px;
+  margin:auto;
+  background:white;
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 2px 10px rgba(0,0,0,.12);
 }
-.card{
-background:white;
-border-radius:18px;
-padding:28px;
-box-shadow:0 4px 18px rgba(0,0,0,.10);
+
+h2{
+  text-align:center;
+  margin-top:0;
 }
-h1{margin:0 0 10px;}
+
 label{
-display:block;
-margin-top:18px;
-font-weight:bold;
+  font-weight:bold;
+  display:block;
+  margin-top:14px;
 }
+
 input{
-width:100%;
-box-sizing:border-box;
-padding:15px;
-margin-top:8px;
-border:1px solid #ccc;
-border-radius:10px;
-font-size:17px;
+  width:100%;
+  box-sizing:border-box;
+  padding:13px;
+  margin-top:6px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
 }
+
 button{
-width:100%;
-padding:15px;
-margin-top:15px;
-border:0;
-border-radius:10px;
-color:white;
-font-size:17px;
-font-weight:bold;
+  width:100%;
+  padding:14px;
+  margin-top:18px;
+  border:0;
+  border-radius:8px;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
 }
-.gmail{background:#d93025;}
-.outlook{background:#2563eb;}
-.yahoo{background:#5b21b6;}
-.default{background:#222;}
+
+.gmail{
+  background:#d93025;
+}
+
+.default{
+  background:#222;
+}
+
 .note{
-margin-top:20px;
-font-size:15px;
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  margin-top:12px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<div class="card">
+<div class="box">
 
-<h1>Ascot Homebuyers - Email</h1>
-
-<p>कृपया अपना Name और Unit No. भरें और नीचे अपनी Mail App चुनें।</p>
+<h2>Ascot Homebuyers</h2>
 
 <label>Name</label>
-<input id="name" type="text" placeholder="अपना नाम लिखें">
+
+<input
+  id="name"
+  type="text"
+  placeholder="Enter your name"
+>
 
 <label>Unit No.</label>
-<input id="unit" type="text" placeholder="अपना Unit No. लिखें">
 
-<button class="gmail" onclick="openMail()">Gmail</button>
-<button class="outlook" onclick="  openOutlook()>Outlook</button>
-<button class="yahoo" onclick="openYahoo()">Yahoo Mail</button>
-<button class="default" onclick="openMail()">Default Mail App</button>
+<input
+  id="unit"
+  type="text"
+  placeholder="Enter your unit number"
+>
 
-<p class="note">
-मेल खुलने के बाद To, Subject और Body जाँचकर स्वयं Send दबाएँ।
-</p>
+<button
+  class="gmail"
+  onclick="openGmail()"
+>
+Gmail
+</button>
 
+<button
+  class="default"
+  onclick="openDefault()"
+>
+Default Mail App
+</button>
+
+<div class="note">
+Name और Unit No. भरकर ऊपर का mail option चुनें.
 </div>
+
 </div>
 
 <script>
@@ -94,55 +122,80 @@ const to =
 const subject =
 "Serious Concerns Regarding Unauthorised Interference in the CIRP";
 
-function openMail(){
 
-let name =
-document.getElementById("name").value.trim();
+function getBody(){
 
-let unit =
-document.getElementById("unit").value.trim();
+  const name =
+  document.getElementById("name").value.trim();
 
-if(!name || !unit){
-alert("कृपया Name और Unit No. दोनों भरें।");
-return;
-}
+  const unit =
+  document.getElementById("unit").value.trim();
 
-let body =
-"Dear Sir/Madam,\n\n" +
+  if(!name || !unit){
 
-"Why should we, the Buyers, be dragged into Builder-related fights and unnecessary litigation that only causes further delays to our project?\n\n" +
+    alert("कृपया Name और Unit No. दोनों भरें");
 
-"Let us be realistic that all the Builders are in business to make money through Homebuyers and these Builders are neither sympathetic nor softhearted towards Homebuyers. After losing more than 10 years, we cannot afford further delays or additional financial burden in the CIRP Cost due to IRR and unwanted litigation.\n\n" +
+    return null;
+  }
 
-"Our only priorities should be early revival, timely delivery and NO additional cost to Homebuyers.\n\n" +
+  return `Dear Sir/Madam,
 
-"Why should Buyers suffer further delays because of the personal preferences or agendas of certain group leaders who want to control the CIRP or bring in their preferred Builders?\n\n" +
+Why should we, the Buyers, be dragged into Builder-related fights and unnecessary litigation that only causes further delays to our project?
 
-"We must remain united and stop unnecessary litigation. RP replacement and IRR involvement are not required as they only add complexity and delay.\n\n" +
+Let us be realistic that all the Builders are in business to make money through Homebuyers and these Builders are neither sympathetic nor softhearted towards Homebuyers. After losing more than 10 years, we cannot afford further delays or additional financial burden in the CIRP Cost due to IRR and unwanted litigation.
 
-"Let us not allow personal agendas to derail our project. We need revival and not more disputes, litigation and uncertainty.\n\n" +
+Our only priorities should be early revival, timely delivery and NO additional cost to Homebuyers.
 
+Why should Buyers suffer further delays because of the personal preferences or agendas of certain group leaders who want to control the CIRP or bring in their preferred Builders?
 
-"Regards\n\n" +
-"Name: " + name + "\n" +
-"Unit No.: " + unit;
+We must remain united and stop unnecessary litigation. RP replacement and IRR involvement are not required as they only add complexity and delay.
 
-let url =
-"mailto:" + to +
-"?subject=" + encodeURIComponent(subject) +
-"&body=" + encodeURIComponent(body);
+Let us not allow personal agendas to derail our project. We need revival and not more disputes, litigation and uncertainty.
 
-window.location.href = url;
+Regards
+
+Name: ${name}
+Unit No.: ${unit}`;
 
 }
-function openYahoo(){
-let url="https://mail.yahoo.com/"; name=document.getElementById("name").value.trim();
-let unit=document.getElementById("unit").value.trim();
-if(!name || !unit){alert("कृपया Name और Unit No. दोनों भरें");return;}
-let body="Dear Sir/Madam,\n\nName: "+name+"\nUnit No.: "+unit+"\n\nRegards";
-let
- subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
-window.location.href=url;
+
+
+function openGmail(){
+
+  const body = getBody();
+
+  if(!body) return;
+
+  const url =
+  "intent://" +
+  encodeURIComponent(to) +
+  "?subject=" +
+  encodeURIComponent(subject) +
+  "&body=" +
+  encodeURIComponent(body) +
+  "#Intent;scheme=mailto;package=com.google.android.gm;end";
+
+  window.location.href = url;
+
+}
+
+
+function openDefault(){
+
+  const body = getBody();
+
+  if(!body) return;
+
+  const url =
+  "mailto:" +
+  to +
+  "?subject=" +
+  encodeURIComponent(subject) +
+  "&body=" +
+  encodeURIComponent(body);
+
+  window.location.href = url;
+
 }
 
 </script>
