@@ -7,61 +7,60 @@
 
 <style>
 body{
-  font-family:Arial,sans-serif;
-  background:#f5f7fb;
-  color:#24344d;
-  margin:0;
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+color:#24344d;
+margin:0;
 }
 .container{
-  max-width:650px;
-  margin:25px auto;
-  padding:20px;
+max-width:650px;
+margin:25px auto;
+padding:20px;
 }
 .card{
-  background:white;
-  border-radius:18px;
-  padding:28px;
-  box-shadow:0 4px 18px rgba(0,0,0,.10);
+background:white;
+border-radius:18px;
+padding:28px;
+box-shadow:0 4px 18px rgba(0,0,0,.10);
 }
-h1{
-  margin:0 0 10px;
-}
+h1{margin:0 0 10px;}
 label{
-  display:block;
-  margin-top:18px;
-  font-weight:bold;
+display:block;
+margin-top:18px;
+font-weight:bold;
 }
 input{
-  width:100%;
-  box-sizing:border-box;
-  padding:15px;
-  margin-top:8px;
-  border:1px solid #ccc;
-  border-radius:10px;
-  font-size:17px;
+width:100%;
+box-sizing:border-box;
+padding:15px;
+margin-top:8px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:17px;
 }
 button{
-  width:100%;
-  padding:15px;
-  margin-top:15px;
-  border:0;
-  border-radius:10px;
-  color:white;
-  font-size:17px;
-  font-weight:bold;
+width:100%;
+padding:15px;
+margin-top:15px;
+border:0;
+border-radius:10px;
+color:white;
+font-size:17px;
+font-weight:bold;
 }
 .gmail{background:#d93025;}
 .outlook{background:#2563eb;}
 .yahoo{background:#5b21b6;}
 .default{background:#222;}
 .note{
-  margin-top:20px;
-  font-size:15px;
+margin-top:20px;
+font-size:15px;
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 <div class="card">
 
@@ -109,30 +108,29 @@ return;
 }
 
 let body =
-"Dear Sir/Madam,%0D%0A%0D%0A" +
+"Dear Sir/Madam,\n\n" +
 
-"Name: " + encodeURIComponent(name) +
-"%0D%0AUnit No.: " + encodeURIComponent(unit) +
-"%0D%0A%0D%0A" +
+"Why should we, the Buyers, be dragged into Builder-related fights and unnecessary litigation that only causes further delays to our project?\n\n" +
 
-"Why should we, the Buyers, be dragged into Builder-related fights and unnecessary litigation that only causes further delays to our project?%0D%0A%0D%0A" +
+"Let us be realistic that all the Builders are in business to make money through Homebuyers and these Builders are neither sympathetic nor softhearted towards Homebuyers. After losing more than 10 years, we cannot afford further delays or additional financial burden in the CIRP Cost due to IRR and unwanted litigation.\n\n" +
 
-"Let us be realistic that all the Builders are in business to make money through Homebuyers and these Builders are neither sympathetic nor softhearted towards Homebuyers. After losing more than 10 years, we cannot afford further delays or additional financial burden in the CIRP Cost due to IRR and unwanted litigation.%0D%0A%0D%0A" +
+"Our only priorities should be early revival, timely delivery and NO additional cost to Homebuyers.\n\n" +
 
-"Our only priorities should be early revival, timely delivery and NO additional cost to Homebuyers.%0D%0A%0D%0A" +
+"Why should Buyers suffer further delays because of the personal preferences or agendas of certain group leaders who want to control the CIRP or bring in their preferred Builders?\n\n" +
 
-"Why should Buyers suffer further delays because of the personal preferences or agendas of certain group leaders who want to control the CIRP or bring in their preferred Builders?%0D%0A%0D%0A" +
+"We must remain united and stop unnecessary litigation. RP replacement and IRR involvement are not required as they only add complexity and delay.\n\n" +
 
-"We must remain united and stop unnecessary litigation. RP replacement and IRR involvement are not required as they only add complexity and delay.%0D%0A%0D%0A" +
+"Let us not allow personal agendas to derail our project. We need revival and not more disputes, litigation and uncertainty.\n\n" +
 
-"Let us not allow personal agendas to derail our project. We need revival and not more disputes, litigation and uncertainty.%0D%0A%0D%0A" +
+"Name: " + name + "\n" +
+"Unit No.: " + unit + "\n\n" +
 
 "Regards";
 
 let url =
 "mailto:" + to +
 "?subject=" + encodeURIComponent(subject) +
-"&body=" + body;
+"&body=" + encodeURIComponent(body);
 
 window.location.href = url;
 
