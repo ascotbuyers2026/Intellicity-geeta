@@ -145,11 +145,12 @@ window.location.href=url;
 }
 
 function openYahoo(){
-let name=document.getElementById("name").value.trim();
+let url="https://mail.yahoo.com/"; name=document.getElementById("name").value.trim();
 let unit=document.getElementById("unit").value.trim();
 if(!name || !unit){alert("कृपया Name और Unit No. दोनों भरें");return;}
 let body="Dear Sir/Madam,\n\nName: "+name+"\nUnit No.: "+unit+"\n\nRegards";
-let url="https://compose.mail.yahoo.com/?to="+encodeURIComponent(to)+"&subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+let
+ subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
 window.location.href=url;
 }
 </script>
