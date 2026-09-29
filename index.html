@@ -140,9 +140,9 @@ const url =
 'https://mail.google.com/mail/?view=cm&fs=1&tf=1'
 + '&to=' + encodeURIComponent(to)
 + '&su=' + encodeURIComponent(subject)
-+ '&body=' + encodeURIComponent(body);
-
-window.location.href = url;
++ '&body=' +
+encodeURIComponent(body);
+window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 
 }
 
