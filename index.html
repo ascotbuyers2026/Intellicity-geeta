@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Ascot Homebuyers – Email</title>
+<title>Ascot Homebuyers - Email</title>
 
 <style>
 body{
@@ -13,91 +12,73 @@ body{
   color:#24344d;
   margin:0;
 }
-
 .container{
   max-width:650px;
   margin:25px auto;
   padding:20px;
 }
-
 .card{
   background:white;
   border-radius:18px;
   padding:28px;
   box-shadow:0 4px 18px rgba(0,0,0,.10);
 }
-
 h1{
-  margin-top:0;
-  font-size:30px;
+  margin:0 0 10px;
 }
-
+label{
+  display:block;
+  margin-top:18px;
+  font-weight:bold;
+}
 input{
   width:100%;
   box-sizing:border-box;
-  padding:16px;
-  margin:8px 0 18px;
+  padding:15px;
+  margin-top:8px;
   border:1px solid #ccc;
   border-radius:10px;
   font-size:17px;
 }
-
 button{
   width:100%;
   padding:15px;
-  margin-top:10px;
+  margin-top:15px;
   border:0;
   border-radius:10px;
+  color:white;
   font-size:17px;
   font-weight:bold;
-  color:white;
-  cursor:pointer;
 }
-
 .gmail{background:#d93025;}
-.outlook{background:#0078d4;}
-.yahoo{background:#6001d2;}
-.default{background:#444;}
-
+.outlook{background:#2563eb;}
+.yahoo{background:#5b21b6;}
+.default{background:#222;}
 .note{
   margin-top:20px;
-  color:#666;
+  font-size:15px;
 }
 </style>
 </head>
 
 <body>
-
 <div class="container">
 <div class="card">
 
-<h1>Ascot Homebuyers – Email</h1>
+<h1>Ascot Homebuyers - Email</h1>
 
-<p>
-कृपया अपना नाम और Unit No. भरें। इसके बाद अपनी पसंद का Mail App चुनें।
-</p>
+<p>कृपया अपना Name और Unit No. भरें और नीचे अपनी Mail App चुनें।</p>
 
-<label><b>Name</b></label>
+<label>Name</label>
 <input id="name" type="text" placeholder="अपना नाम लिखें">
 
-<label><b>Unit No.</b></label>
+<label>Unit No.</label>
 <input id="unit" type="text" placeholder="अपना Unit No. लिखें">
 
-<button class="gmail" onclick="openGmail()">
-Gmail
-</button>
-
-<button class="outlook" onclick="openOutlook()">
-Outlook
-</button>
-
-<button class="yahoo" onclick="openYahoo()">
-Yahoo Mail
-</button>
-
-<button class="default" onclick="openDefault()">
-Default Mail App
-</button>
+<button class="gmail" onclick="openMail()">Gmail</button>
+<button class="outlook" onclick="openMail()">Outlook</button>
+<button class="yahoo" onclick="openMail()">Yahoo Mail</button>
+<button class="default" onclick="openMail()">Default Mail App</button>
 
 <p class="note">
 मेल खुलने के बाद To, Subject और Body जाँचकर स्वयं Send दबाएँ।
@@ -108,12 +89,13 @@ Default Mail App
 
 <script>
 
-const to = "cirpascot@gmail.com,ascotpeople@gmail.com,ar.ascotcirp2025@gmail.com";
+const to =
+"cirpascot@gmail.com,ascotpeople@gmail.com,ar.ascotcirp2025@gmail.com";
 
 const subject =
 "Serious Concerns Regarding Unauthorised Interference in the CIRP";
 
-function getBody(){
+function openMail(){
 
 let name =
 document.getElementById("name").value.trim();
@@ -121,65 +103,36 @@ document.getElementById("name").value.trim();
 let unit =
 document.getElementById("unit").value.trim();
 
-return
-"Dear Sir,\n\n" +
-"Name: " + name + "\n" +
-"Unit No.: " + unit + "\n\n" +
-"Serious Concerns Regarding Unauthorised Interference in the CIRP.\n\n" +
-"Regards,\n" + name;
-
+if(!name || !unit){
+alert("कृपया Name और Unit No. दोनों भरें।");
+return;
 }
 
-function openGmail(){
+let body =
+"Dear Sir/Madam,%0D%0A%0D%0A" +
 
-let body = getBody();
+"Name: " + encodeURIComponent(name) +
+"%0D%0AUnit No.: " + encodeURIComponent(unit) +
+"%0D%0A%0D%0A" +
 
-let url =
-"https://mail.google.com/mail/?view=cm&fs=1&tf=1" +
-"&to=" + encodeURIComponent(to) +
-"&su=" + encodeURIComponent(subject) +
-"&body=" + encodeURIComponent(body);
+"Why should we, the Buyers, be dragged into Builder-related fights and unnecessary litigation that only causes further delays to our project?%0D%0A%0D%0A" +
 
-window.location.href = url;
+"Let us be realistic that all the Builders are in business to make money through Homebuyers and these Builders are neither sympathetic nor softhearted towards Homebuyers. After losing more than 10 years, we cannot afford further delays or additional financial burden in the CIRP Cost due to IRR and unwanted litigation.%0D%0A%0D%0A" +
 
-}
+"Our only priorities should be early revival, timely delivery and NO additional cost to Homebuyers.%0D%0A%0D%0A" +
 
-function openOutlook(){
+"Why should Buyers suffer further delays because of the personal preferences or agendas of certain group leaders who want to control the CIRP or bring in their preferred Builders?%0D%0A%0D%0A" +
 
-let body = getBody();
+"We must remain united and stop unnecessary litigation. RP replacement and IRR involvement are not required as they only add complexity and delay.%0D%0A%0D%0A" +
 
-let url =
-"https://outlook.live.com/mail/0/deeplink/compose" +
-"?to=" + encodeURIComponent(to) +
-"&subject=" + encodeURIComponent(subject) +
-"&body=" + encodeURIComponent(body);
+"Let us not allow personal agendas to derail our project. We need revival and not more disputes, litigation and uncertainty.%0D%0A%0D%0A" +
 
-window.location.href = url;
-
-}
-
-function openYahoo(){
-
-let body = getBody();
+"Regards";
 
 let url =
-"https://compose.mail.yahoo.com/" +
-"?to=" + encodeURIComponent(to) +
-"&subject=" + encodeURIComponent(subject) +
-"&body=" + encodeURIComponent(body);
-
-window.location.href = url;
-
-}
-
-function openDefault(){
-
-let body = getBody();
-
-let url =
-"mailto:" + encodeURIComponent(to) +
+"mailto:" + to +
 "?subject=" + encodeURIComponent(subject) +
-"&body=" + encodeURIComponent(body);
+"&body=" + body;
 
 window.location.href = url;
 
